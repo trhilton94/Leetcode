@@ -31,5 +31,4 @@ class Solution {
     private boolean isOperator(String token) {
         return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
     } // isOperator
-
 } // Solution
