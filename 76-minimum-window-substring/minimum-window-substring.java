@@ -5,8 +5,8 @@ class Solution {
         Map<Character, Integer> windowMap = new HashMap<>();
         Map<Character, Integer> needMap = new HashMap<>();
 
-        for (int i = 0; i < t.length(); i++) {
-            needMap.put(t.charAt(i), needMap.getOrDefault(t.charAt(i), 0) + 1);
+        for (char c : t.toCharArray()) {
+            needMap.put(c, needMap.getOrDefault(c, 0) + 1);
         } // for
 
         int left = 0;
