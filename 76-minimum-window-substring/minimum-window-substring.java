@@ -10,7 +10,7 @@ class Solution {
         } // for
 
         int left = 0;
-        int need = needMap.entrySet().size();
+        int need = needMap.size();
         int have = 0;
         int minLength = Integer.MAX_VALUE;
         String minWindow = "";
