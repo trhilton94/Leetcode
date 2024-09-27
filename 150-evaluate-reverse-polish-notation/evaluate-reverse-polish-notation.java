@@ -1,21 +1,19 @@
 class Solution {
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
-        int index = 0;
         int num1 = 0;
         int num2 = 0;
 
-        while (index < tokens.length) {
-            if (isNumber(tokens[index])) {
-                stack.push(Integer.valueOf(tokens[index]));
-                index++;
+        for (String s : tokens) {
+            if (isNumber(s)) {
+                stack.push(Integer.valueOf(s));
                 continue;
             } // if
 
             num2 = stack.pop();
             num1 = stack.pop();
 
-            switch (tokens[index]) {
+            switch (s) {
                 case "+": stack.push(num1 + num2);
                           break;
                 case "-": stack.push(num1 - num2);
@@ -25,15 +23,14 @@ class Solution {
                 case "/": stack.push(num1 / num2);
                           break;
             } // switch
-            index++;
-        } // while
+        } // for
 
         return stack.pop();
     } // evalRPN
 
-    private boolean isNumber(String str) {
+    private boolean isNumber(String s) {
         try {
-            Integer.parseInt(str);  // or Double.parseDouble(str) for decimals
+            Integer.parseInt(s);
             return true;
         } catch (NumberFormatException e) {
             return false;
