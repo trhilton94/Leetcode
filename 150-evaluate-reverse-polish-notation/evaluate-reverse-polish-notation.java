@@ -7,15 +7,13 @@ class Solution {
 
         while (index < tokens.length) {
             if (isNumber(tokens[index])) {
-                stack.push(Integer.parseInt(tokens[index]));
+                stack.push(Integer.valueOf(tokens[index]));
                 index++;
                 continue;
             } // if
 
-            num2 = stack.peek();
-            stack.pop();
-            num1 = stack.peek();
-            stack.pop();
+            num2 = stack.pop();
+            num1 = stack.pop();
 
             switch (tokens[index]) {
                 case "+": stack.push(num1 + num2);
@@ -30,7 +28,7 @@ class Solution {
             index++;
         } // while
 
-        return stack.peek();
+        return stack.pop();
     } // evalRPN
 
     private boolean isNumber(String str) {
