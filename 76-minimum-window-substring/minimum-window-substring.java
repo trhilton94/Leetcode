@@ -19,7 +19,6 @@ class Solution {
 
         for (int right = 0; right < s.length(); right++) {
             rightChar = s.charAt(right);
-            leftChar = s.charAt(left);
             windowMap.put(rightChar, windowMap.getOrDefault(rightChar, 0) + 1);
             if (needMap.containsKey(rightChar) &&
                 windowMap.get(rightChar).intValue() == needMap.get(rightChar).intValue()) have++;
@@ -29,9 +28,9 @@ class Solution {
                     minWindow = s.substring(left, right + 1);
                 } // if
                 leftChar = s.charAt(left);
-                windowMap.put(leftChar, windowMap.get(leftChar) - 1);
                 if (needMap.containsKey(leftChar) &&
-                    windowMap.get(leftChar).intValue() < needMap.get(leftChar).intValue()) have--;
+                    windowMap.get(leftChar).intValue() == needMap.get(leftChar).intValue()) have--;
+                windowMap.put(leftChar, windowMap.get(leftChar) - 1);
                 left++;
             } // while
         } // for
