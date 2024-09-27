@@ -26,6 +26,7 @@ class Solution {
                 if (right - left + 1 < minLength) {
                     minLength = right - left + 1;
                     minWindow = s.substring(left, right + 1);
+                    if (minLength == t.length()) return s.substring(left, right + 1);
                 } // if
                 leftChar = s.charAt(left);
                 if (needMap.containsKey(leftChar) &&
