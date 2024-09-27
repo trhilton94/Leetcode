@@ -5,7 +5,7 @@ class Solution {
         int num2 = 0;
 
         for (String s : tokens) {
-            if (isNumber(s)) {
+            if (!isOperator(s)) {
                 stack.push(Integer.valueOf(s));
                 continue;
             } // if
@@ -28,13 +28,8 @@ class Solution {
         return stack.pop();
     } // evalRPN
 
-    private boolean isNumber(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        } // try/catch
-    } // isNumber
+    private boolean isOperator(String token) {
+        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
+    } // isOperator
 
 } // Solution
